@@ -28,12 +28,12 @@ const NavBar = () => {
             About
           </NavLink>
           <NavLink
-            to="post"
+            to="posts"
             className={(link) =>
               defaultStyles + (!link.isActive ? "" : "text-red-100 bg-red-700")
             }
           >
-            post
+            posts
           </NavLink>
           <NavLink
             to="project"
