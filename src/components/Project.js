@@ -53,6 +53,19 @@ const Project = () => {
                   <span>
                     <strong className="font-bold">Type</strong>:{projectType}
                   </span>
+                  <div className="text-gray-500 text-xs mt-2">
+                    {tags.map((tag, index) => {
+                      return (
+                        <sapn
+                          key={index}
+                          className="bg-red-300 text-xs font-bold mr-2 px-3 py-1 rounded-full "
+                        >
+                          {tag}
+                        </sapn>
+                      );
+                    })}
+                  </div>
+
                   <p className="my-6 text-lg text-gray-700 leading-relaxed ">
                     {" "}
                     {description}{" "}
