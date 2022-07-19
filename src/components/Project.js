@@ -23,36 +23,57 @@ const Project = () => {
   console.log(projects);
 
   return (
-    <main>
-      <section>
-        <h1>Projects </h1>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 mx-5 gap-5">
+    <main className="bg-green-100 min-h-screen p-12">
+      <section className="container mx-auto">
+        <h1 className="text-5xl flex justify-center cursive">My projects</h1>
+        <h2 className="text-lg text-gray-600 flex justify-center mb-12">
+          welcome to my projects page
+        </h2>
+        <section className="grid md:grid-cols-2 gap-8 sm:mx-10">
           {projects?.map((project, index) => {
-            const { title, description, date, link, place, projectType, tags } =
+            const { date, description, link, place, projectType, tags, title } =
               project;
+
             return (
-              <div key={index} className="border-2 border-blue-400 p-4 ">
-                <h2 className="text-xl font-bold">{title}</h2>
-                <h3 className="text-lg">{description}</h3>
-                <br />
-                <p>category: {projectType}</p>
-                <a href={link}>{link}</a>
-                <p className="mb-2">
-                  date: {date}, location: {place}
-                </p>
-                {tags.map((tag, index) => (
-                  <span
-                    key={index}
-                    className="bg-red-200 mr-2 text-sm px-4 py-1 rounded-full"
-                  >
-                    {tag + (index < tags.length - 1 ? ", " : "")}
+              <article className="relative rounded-lg shadow-xl bg-white p-16">
+                <h3 className="text-gray-800 text-3xl font-bold mb-2 hover:text-red-700">
+                  <a href={link} alt={title} rel="noopener noopener">
+                    {title}
+                  </a>
+                </h3>
+                <div className="text-gray-500 text-xs ">
+                  <span>
+                    <strong className="font-bold">Finished on</strong>
+                    {new Date(date).toLocaleDateString()}
                   </span>
-                ))}
-              </div>
+                  <span>
+                    <strong className="font-bold">Company</strong>
+                    {place}
+                  </span>
+                  <span>
+                    <strong className="font-bold">Type</strong>:{projectType}
+                  </span>
+                  <p className="my-6 text-lg text-gray-700 leading-relaxed ">
+                    {" "}
+                    {description}{" "}
+                  </p>
+                  <a
+                    href={link}
+                    rel="noopener noopener"
+                    target="_blank"
+                    className="text-red-500 font-bold hover:underline hover:text-red-400 text-lg"
+                  >
+                    View Project
+                    <span role="img" aria-label="right pointer">
+                      {"   "}
+                      👉
+                    </span>
+                  </a>
+                </div>
+              </article>
             );
           })}
-        </div>
+        </section>
       </section>
     </main>
   );
